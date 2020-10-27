@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class Laser_Bullet : MonoBehaviour
 {    
-    private float _speed = 10f;
-    
-    void Start()
-    {
+    private float _speed = 10f;    
         
-    }
-
-    
     void Update()
     {
         // translate laser up       

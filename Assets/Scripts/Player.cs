@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     public float speed = 3.5f;    
     [SerializeField]
     private GameObject _laser;
+    [SerializeField]
+    private float _fireRate = 0.5f;
+    [SerializeField]
+    private float _CanFire = 1f;
 
     
     //public float horizontalInput;
@@ -21,9 +25,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > _CanFire)
         {
-            Instantiate(_laser, transform.position, Quaternion.identity);
+            ShotLaser(); 
         }       
     }
 
@@ -65,8 +69,10 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(11, transform.position.y, 0);
         }
     }    
-    //if condition 
-    //then run code
-    //else if () {}
+   void ShotLaser()
+    {
+        _CanFire = Time.time + _fireRate;
+        Instantiate(_laser, transform.position + new Vector3(0, 0.8f, 0), Quaternion.identity);
+    }
 
 }

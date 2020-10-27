@@ -108,3 +108,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   _laser: {fileID: 7281440248421620123, guid: f00e8411cd11a4c40917693ff8ada53e, type: 3}
+  _fireRate: 0.15
+  _CanFire: 1
